@@ -1,7 +1,13 @@
 const container = document.querySelector('#grid-container')
 const newGridButton = document.querySelector('#new-grid-button')
+const colorPicker = document.querySelector('#color')
 
 let mousePressed = false
+let color = '#000'
+
+colorPicker.addEventListener('change', (e) => {
+  color = e.target.value
+})
 
 document.addEventListener('mousedown', () => {
   mousePressed = true
@@ -26,12 +32,12 @@ function generateGrid(size) {
     const cell = document.createElement('div')
     cell.style.cssText = `width: ${800 / size}px; height: ${
       800 / size
-    }px; border: 1px solid gray; user-select: none`
+    }px; border: 1px solid lightgray; user-select: none`
 
     container.appendChild(cell)
     cell.addEventListener('mouseover', () => {
       if (mousePressed) {
-        cell.classList.add('filled')
+        cell.style.backgroundColor = color
       }
     })
     cell.addEventListener('mousedown', () => cell.classList.add('filled'))

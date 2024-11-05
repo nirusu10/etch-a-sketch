@@ -9,12 +9,14 @@ body {
   align-items: center;
 }
 
+input[type='color'] {
+  margin: 1rem;
+}
+
 #grid-container {
+  box-sizing: content-box;
   display: flex;
   flex-wrap: wrap;
   width: 800px;
-}
-
-.filled {
-  background-color: black;
+  border: 3px solid black;
 }
